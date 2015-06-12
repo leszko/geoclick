@@ -13,10 +13,10 @@ class GeoClickActor extends Actor with WebClientFactory with Logging {
     }
   }
 
-  def clickFiveStars(url: String): Unit = {
+  def clickFiveStars(url: String) {
     info(s"Clicking five stars: $url")
 
-    val fiveStars = newWebClientWithNoExceptions().getPage(url).asInstanceOf[HtmlPage]
+    newWebClient().getPage(url).asInstanceOf[HtmlPage]
       .getFirstByXPath("//img[@id='star_5']").asInstanceOf[HtmlImage] match {
       case null => info(s"Five stars already clicked from this IP: $url")
       case img: HtmlImage => img.click(); info(s"Clicked five stars: $url")

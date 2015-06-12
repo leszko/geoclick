@@ -1,7 +1,7 @@
 package com.summercoding.geoclick
 
-object App {
+object Main {
   def main(args: Array[String]) {
-    new GeoClick("marianka").clickFiveStarsForAllTrips
+    new GeoClick("marianka").clickFiveStarsForAllTrips()
   }
 }
