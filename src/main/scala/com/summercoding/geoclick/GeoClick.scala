@@ -12,7 +12,7 @@ class GeoClick(val name: String) extends WebClientFactory with Logging {
     info(s"Opening geoblog page: $allTripsUrl")
 
     newWebClient().getPage(allTripsUrl).asInstanceOf[HtmlPage]
-      .getByXPath("//div[@class='userJournal']/a/@href").toList.subList(1, 7).map {
+      .getByXPath("//div[@class='userJournal']/a/@href").map {
       case (e: DomAttr) => e.getValue
     }.foreach(clickFiveStars)
   }
