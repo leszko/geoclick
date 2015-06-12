@@ -9,7 +9,7 @@ class GeoClick(val name: String) extends WebClientFactory with Logging {
   val allTripsUrl = s"http://$name.geoblog.pl/podroze"
 
   def clickFiveStarsForAllTrips() {
-    info(s"Opening geoblog page: $allTripsUrl")
+    info(s"Opening page: $allTripsUrl")
 
     newWebClient().getPage(allTripsUrl).asInstanceOf[HtmlPage]
       .getByXPath("//div[@class='userJournal']/a/@href").map {
