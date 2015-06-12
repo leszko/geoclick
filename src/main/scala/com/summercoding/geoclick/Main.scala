@@ -1,7 +1,12 @@
 package com.summercoding.geoclick
 
-object Main {
+import grizzled.slf4j.Logging
+
+object Main extends Logging {
   def main(args: Array[String]) {
-    new GeoClick("marianka").clickFiveStarsForAllTrips()
+    args match {
+      case Array(login) => new GeoClick(login).clickFiveStarsForAllTrips()
+      case _ => error("Wrong execution arguments: " + args.deep.mkString(","))
+    }
   }
 }
